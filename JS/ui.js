@@ -1,9 +1,21 @@
 import api from "./api.js";
+
 const galeria = document.querySelector(".hero-gallery");
+const btnAnterior = document.createElement("button");
+const btnProximo = document.createElement("button");
+const divBotoes = document.querySelector(".pagination-buttons");
+
+btnAnterior.textContent = "Anterior";
+btnProximo.textContent = "Próximo";
+divBotoes.appendChild(btnAnterior);
+divBotoes.appendChild(btnProximo);
+
 const ui = {
-  async criandoCard() {
+  currentPage: 0,
+  async criandoCard(page) {
     try {
-      const resultados = await api.buscarPersonagens();
+      const resultados = await api.buscarPersonagens(page);
+      galeria.innerHTML = "";
       resultados.data.results.forEach((element) => {
         const linkWiki = document.createElement("a");
         const heroCard = document.createElement("div");
@@ -35,5 +47,22 @@ const ui = {
       throw error;
     }
   },
+  async irParaPaginaAnterior() {
+    if (this.currentPage > 0) {
+      this.currentPage--;
+      await this.criandoCard(this.currentPage);
+    }
+  },
+
+  // Método para ir para a próxima página
+  async irParaProximaPagina() {
+    this.currentPage++;
+    await this.criandoCard(this.currentPage);
+  },
 };
+
+// Adiciona eventos aos botões
+btnAnterior.addEventListener("click", () => ui.irParaPaginaAnterior());
+btnProximo.addEventListener("click", () => ui.irParaProximaPagina());
+
 export default ui;
