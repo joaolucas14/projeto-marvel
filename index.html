@@ -6,22 +6,26 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>Super-Heróis</title>
     <link rel="stylesheet" href="styles.css" />
+    <link rel="shortcut icon" href="img/logo.ico" type="image/x-icon" />
   </head>
   <body>
     <header>
       <h1>Galeria de Super-Heróis</h1>
     </header>
-
-    <section class="hero-gallery">
-      <!-- Os cards dos heróis serão adicionados aqui -->
+    <section id="busca-container">
+      <input type="text" id="campo-busca" placeholder="O que você procura?" />
     </section>
+    <section class="hero-gallery"></section>
 
-    <div class="pagination-buttons">
-      <!-- Os botões de navegação serão inseridos aqui pelo JavaScript -->
-    </div>
+    <div class="pagination-buttons"></div>
 
     <footer>
-      <p>&copy; 2024 Galeria de Super-Heróis. Todos os direitos reservados.</p>
+      <p>
+        &copy; 2024 Galeria de Super-Heróis. Feito por
+        <a href="https://joaolucas14.github.io/portifolio/" target="_blank"
+          >João Lucas</a
+        >.
+      </p>
     </footer>
     <script type="module" src="JS/api.js"></script>
     <script type="module" src="JS/main.js"></script>
