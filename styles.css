@@ -1,0 +1,75 @@
+/* Estilo global */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+header {
+    background-color: #444;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    text-transform: uppercase;
+}
+
+/* Galeria de Heróis */
+.hero-gallery {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+}
+
+.hero-card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 300px;
+    transition: transform 0.3s;
+}
+
+.hero-card:hover {
+    transform: translateY(-10px);
+}
+
+.hero-image {
+    width: 100%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.hero-card h2 {
+    font-size: 1.5rem;
+    margin: 15px 0;
+    color: #444;
+}
+
+.hero-card p {
+    padding: 0 15px 20px;
+    font-size: 1rem;
+    color: #666;
+}
+
+/* Rodapé */
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #444;
+    color: white;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+}
