@@ -12,7 +12,7 @@ body {
 }
 
 header {
-    background-color: #444;
+    background-color: #d90429;
     color: white;
     padding: 20px;
     text-align: center;
@@ -41,6 +41,7 @@ header h1 {
     max-width: 200px; /* Define a largura máxima dos cards */
     flex: 1 0 calc(20% - 20px); /* 20% da largura total menos a margem */
     transition: transform 0.3s;
+    min-height: 450px;
 }
 
 .hero-card:hover {
