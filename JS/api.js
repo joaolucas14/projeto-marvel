@@ -16,21 +16,5 @@ const api = {
       throw error;
     }
   },
-  async criandoCard() {
-    try {
-      const resultados = await api.buscarPersonagens();
-      resultados.data.results.forEach((element) => {
-        const srcImage =
-          element.thumbnail.path + "." + element.thumbnail.extension;
-        const nomeHeroi = element.name;
-        console.table(srcImage, nomeHeroi);
-      });
-    } catch (error) {
-      alert("Erro ao criar card");
-      throw error;
-    }
-  },
 };
-document.addEventListener("DOMContentLoaded", () => {
-  api.criandoCard();
-});
+export default api;
