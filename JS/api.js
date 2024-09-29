@@ -19,5 +19,10 @@ const api = {
       throw error;
     }
   },
+  async buscarPersonagensFiltrados(nome) {
+    const url = `${URL_BASE}${endpoint}?ts=${timeStamp}&apikey=${apiKey}&hash=${md5}&nameStartsWith=${nome}`;
+    const response = await fetch(url);
+    return response.json();
+  },
 };
 export default api;
