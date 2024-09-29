@@ -5,6 +5,7 @@ const btnAnterior = document.createElement("button");
 const btnProximo = document.createElement("button");
 const divBotoes = document.querySelector(".pagination-buttons");
 const inputFiltro = document.querySelector("#campo-busca");
+const loadingElement = document.querySelector("#loading");
 btnAnterior.textContent = "Anterior";
 btnProximo.textContent = "Próximo";
 divBotoes.appendChild(btnAnterior);
@@ -12,13 +13,25 @@ divBotoes.appendChild(btnProximo);
 
 const ui = {
   currentPage: 0,
+  mostrarLoading() {
+    loadingElement.style.display = "block";
+    galeria.style.display = "none";
+  },
+
+  esconderLoading() {
+    loadingElement.style.display = "none";
+    galeria.style.display = "grid";
+  },
   async criandoCard(page) {
     try {
+      this.mostrarLoading();
       const resultados = await api.buscarPersonagens(page);
       this.renderizarCards(resultados.data.results);
     } catch (error) {
       alert("Erro ao criar card");
       throw error;
+    } finally {
+      this.esconderLoading();
     }
   },
   renderizarCards(personagens) {
@@ -49,11 +62,14 @@ const ui = {
   },
   async buscarPersonagensFiltrados(filtro) {
     try {
+      this.mostrarLoading();
       const resultados = await api.buscarPersonagensFiltrados(filtro);
       this.renderizarCards(resultados.data.results); // Renderiza os personagens filtrados
     } catch (error) {
       alert("Erro ao buscar personagens filtrados");
       throw error;
+    } finally {
+      this.esconderLoading();
     }
   },
   async irParaPaginaAnterior() {
